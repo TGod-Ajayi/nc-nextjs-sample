@@ -6,6 +6,8 @@ const MESSAGE = "Hello from Next.js on Naijacloud.";
 
 export default function Home() {
   const renderedAt = new Date().toUTCString();
+  // Read at request time, so a new value shows up after the next deploy.
+  const appMessage = process.env.APP_MESSAGE;
   return (
     <main
       style={{
@@ -26,6 +28,12 @@ export default function Home() {
       </h1>
       <p style={{ fontSize: 20, color: "#4A5651", marginTop: 24, maxWidth: 720, lineHeight: 1.5 }}>
         This page was rendered on the server at <strong style={{ color: "#0B100D" }}>{renderedAt}</strong>.
+      </p>
+      <p style={{ fontSize: 18, marginTop: 28, fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace", color: "#0B100D" }}>
+        APP_MESSAGE ={" "}
+        <span style={{ background: appMessage ? "#E2F1E8" : "#ECF0ED", color: appMessage ? "#006A3F" : "#4A5651", padding: "4px 10px", borderRadius: 8 }}>
+          {appMessage ? `"${appMessage}"` : "not set"}
+        </span>
       </p>
       <p style={{ fontSize: 16, color: "#4A5651", marginTop: 32 }}>
         Edit <code>app/page.tsx</code>, push, and press Redeploy.
