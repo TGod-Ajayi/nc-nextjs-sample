@@ -2,7 +2,7 @@
 export const dynamic = "force-dynamic";
 
 // Change this line, push, and press Redeploy to ship a new version.
-const MESSAGE = "Hello from Next.js on Naijacloud.";
+const MESSAGE = "Oops. This release shipped a bug.";
 
 export default function Home() {
   const renderedAt = new Date().toUTCString();
